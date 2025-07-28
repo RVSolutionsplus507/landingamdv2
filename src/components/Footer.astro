@@ -1,0 +1,148 @@
+---
+// Footer exactamente idéntico al prototipo de Figma
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<footer class="bg-[var(--color-dark)] text-white" role="contentinfo" aria-label="Información de contacto y enlaces">
+  <!-- Main Footer Content -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    
+    <!-- Logo y Título - Centrados en mobile, línea en desktop -->
+    <div class="flex flex-col items-center text-center md:flex-row md:items-center md:text-left mb-8">
+      <!-- Logo centrado en mobile, izquierda en desktop -->
+      <div class="mb-6 md:mb-0">
+        <img src="/Images/amdlogo2.svg" 
+          alt="Almacenajes Mini Depósitos - Logo blanco" 
+          class="h-16 md:h-12 w-auto mx-auto md:mx-0"
+          width="120"
+          height="48"
+         loading="eager">
+      </div>
+      
+      <!-- Título centrado en mobile, cerca del logo en desktop -->
+      <div class="md:ml-28 md:text-center">
+        <h2 class="text-2xl md:text-3xl font-bold text-white" id="footer-title">
+          {t('footer.title')}
+        </h2>
+      </div>
+    </div>
+    
+    <!-- Grid de 2 columnas para horarios -->
+    <div class="max-w-4xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
+      
+      <!-- Columna Izquierda: Horario de Acceso -->
+      <div class="text-center">
+        <div class="flex items-center justify-center mb-3">
+          <img src="/icons/clockicon.svg" alt="Reloj" class="w-6 h-6" style="filter: brightness(0) saturate(100%) invert(65%) sepia(85%) saturate(2341%) hue-rotate(4deg) brightness(102%) contrast(101%);" width="24" height="24" loading="lazy">
+        </div>
+        <h3 class="text-[var(--color-primary)] font-medium text-xl mb-2">
+          {t('footer.access.title')}
+        </h3>
+        <div class="text-gray-300 text-base">
+          <p>{t('footer.access.days')}</p>
+          <p>{t('footer.access.hours')}</p>
+        </div>
+        
+        <!-- Botón CTA en la columna izquierda -->
+        <div class="mt-4">
+          <a 
+            href="#cotizacion" 
+            class="inline-block border border-[var(--color-primary)] text-[var(--color-primary)] px-6 py-2 rounded font-normal text-sm hover:bg-[var(--color-primary)] hover:text-white transition-all duration-300"
+          >
+            <span set:html={t('footer.access.cta').replace('\n', '<br>')} />
+          </a>
+        </div>
+      </div>
+      
+      <!-- Columna Derecha: Horario de Oficinas -->
+      <div class="text-center">
+        <div class="flex items-center justify-center mb-3">
+          <img src="/icons/clockicon.svg" alt="Reloj" class="w-6 h-6" style="filter: brightness(0) saturate(100%) invert(65%) sepia(85%) saturate(2341%) hue-rotate(4deg) brightness(102%) contrast(101%);" width="24" height="24" loading="lazy">
+        </div>
+        <h3 class="text-[var(--color-primary)] font-medium text-xl mb-2">
+          {t('footer.office.title')}
+        </h3>
+        <div class="text-gray-300 text-md">
+          <p>{t('footer.office.weekdays')}</p>
+          <p>{t('footer.office.weekhours')}</p>
+          <div class="mt-2">
+            <p>{t('footer.office.saturday')}</p>
+            <p>{t('footer.office.sathours')}</p>
+          </div>
+        </div>
+      </div>
+      
+      </div>
+    </div>
+    
+    <!-- Redes Sociales - Fuera del grid, centradas -->
+    <div class="text-center mb-6">
+      <p class="text-gray-300 text-sm mb-4">{t('footer.social')}</p>
+      <div class="flex justify-center space-x-6">
+        <a 
+          href="https://instagram.com/almacenajesmini" 
+          class="w-12 h-12 flex items-center justify-center hover:opacity-80 transition-opacity duration-200"
+          aria-label="Síguenos en Instagram - Almacenajes Mini Depósitos"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src="/icons/instagram.svg" alt="Instagram" class="w-8 h-8" style="filter: brightness(0) saturate(100%) invert(65%) sepia(85%) saturate(2341%) hue-rotate(4deg) brightness(102%) contrast(101%);" width="32" height="32" loading="lazy">
+        </a>
+        <a 
+          href="https://facebook.com/almacenajesmini" 
+          class="w-12 h-12 flex items-center justify-center hover:opacity-80 transition-opacity duration-200"
+          aria-label="Síguenos en Facebook - Almacenajes Mini Depósitos"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src="/icons/facebook.svg" alt="Facebook" class="w-8 h-8" style="filter: brightness(0) saturate(100%) invert(65%) sepia(85%) saturate(2341%) hue-rotate(4deg) brightness(102%) contrast(101%);" width="32" height="32" loading="lazy">
+        </a>
+        <a 
+          href="https://twitter.com/almacenajesmini" 
+          class="w-12 h-12 flex items-center justify-center hover:opacity-80 transition-opacity duration-200"
+          aria-label="Síguenos en Twitter/X - Almacenajes Mini Depósitos"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src="/icons/twitter-x-icon.svg" alt="Twitter" class="w-8 h-8" style="filter: brightness(0) saturate(100%) invert(65%) sepia(85%) saturate(2341%) hue-rotate(4deg) brightness(102%) contrast(101%);" width="32" height="32" loading="lazy">
+        </a>
+      </div>
+    </div>
+    
+    <!-- Copyright - Fuera del grid, centrado -->
+    <div class="text-center">
+      <p class="text-gray-400 text-sm">
+        {t('footer.copyright')}
+      </p>
+    </div>
+    
+  </div>
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Smooth scroll para enlaces del footer
+    const footerLinks = document.querySelectorAll('footer a[href^="#"]');
+    footerLinks.forEach(link => {
+      link.addEventListener('click', function(e: Event) {
+        e.preventDefault();
+        const target = e.target as HTMLAnchorElement;
+        const targetId = target.getAttribute('href');
+        const targetElement = document.querySelector(targetId || '');
+        
+        if (targetElement) {
+          const element = targetElement as HTMLElement;
+          const offsetTop = element.offsetTop - 80;
+          window.scrollTo({
+            top: offsetTop,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  });
+</script>

@@ -1,0 +1,88 @@
+---
+// Sección de Cotización idéntica al prototipo de Figma
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section id="cotizacion" class="py-16 lg:py-16 flex items-center justify-center min-h-screen">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+    
+    <!-- Card naranja centrada con fondo, patrón de dots y rounded-xl -->
+    <div class="bg-[var(--color-primary)] rounded-2xl p-8 lg:p-12 relative overflow-hidden shadow-2xl">
+      <!-- Patrón de dots en el fondo -->
+      <div class="absolute inset-0 opacity-10">
+        <div class="w-full h-full" style="background-image: radial-gradient(circle, white 1px, transparent 1px); background-size: 20px 20px;"></div>
+      </div>
+      
+      <div class="relative z-10 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        
+        <!-- Contenido izquierdo - Pregunta -->
+        <div class="text-white">
+          <h2 class="text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight">
+            {t('quote.title')}
+          </h2>
+        </div>
+        
+        <!-- Contenido derecho - Formulario de Pipedrive más ancho -->
+        <div class="bg-white rounded-2xl p-4 lg:p-6 shadow-lg w-full">
+          <div class="pipedriveWebForms"
+               data-pd-webforms="https://webforms.pipedrive.com/f/30ZjsoyUUNVXItMSgeKPoBkCTPffsPlFQPjz4j5UwN2QDTG2DGlSgsHGoREn47ASD"
+               id="idxgylty">
+            <!-- Lazy load Pipedrive script for better bfcache performance -->
+            <script>
+              // Load Pipedrive form when section is visible
+              const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                  if (entry.isIntersecting) {
+                    const script = document.createElement('script');
+                    script.src = 'https://webforms.pipedrive.com/f/loader';
+                    script.async = true;
+                    document.head.appendChild(script);
+                    observer.disconnect();
+                  }
+                });
+              }, { threshold: 0.1 });
+              
+              document.addEventListener('DOMContentLoaded', () => {
+                const formElement = document.getElementById('idxgylty');
+                if (formElement) observer.observe(formElement);
+              });
+            </script>
+            <iframe
+              src="https://webforms.pipedrive.com/f/30ZjsoyUUNVXItMSgeKPoBkCTPffsPlFQPjz4j5UwN2QDTG2DGlSgsHGoREn47ASD?embeded=1&uuid=idxgylty"
+              name="https://almacenajes.net/?page_id=5234&preview=true-idxgylty"
+              scrolling="no"
+              title="Web Forms"
+              style="width: 100%; border: none; height: 400px;"
+              class="rounded-xl">
+            </iframe>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<style>
+  /* Asegurar que el iframe se vea bien en todos los dispositivos */
+  .pipedriveWebForms iframe {
+    border-radius: 0.5rem;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 1024px) {
+    .pipedriveWebForms iframe {
+      height: 500px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .pipedriveWebForms iframe {
+      height: 450px;
+    }
+  }
+</style>

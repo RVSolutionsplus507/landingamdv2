@@ -1,0 +1,72 @@
+---
+// Hero section idéntico al prototipo de Figma
+import AnimatedCTAButton from './AnimatedCTAButton.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section id="hero" class="relative min-h-screen flex items-center bg-white overflow-hidden">
+  <!-- Patrón de puntitos en el fondo -->
+  <div class="absolute inset-0 opacity-10">
+    <div class="dots-pattern w-full h-full"></div>
+  </div>
+  <!-- Main Content -->
+  <div class="relative z-10 max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      
+      <!-- Left Content -->
+      <div class="space-y-2 mt-20 lg:pr-8">
+        <div class="space-y-20">
+          <h1 class="text-4xl md:text-4xl lg:text-5xl font-bold text-[var(--color-dark)] leading-none">
+            <span class="block">
+              {t('hero.title.line1')}
+            </span>
+            <span class="block text-[var(--color-dark)]">
+              {t('hero.title.line2')} <span class="text-[var(--color-primary)]">{t('hero.title.highlight')}</span>
+            </span>
+          </h1>
+          
+          <p class="text-lg md:text-2xl text-gray-600 leading-none">
+            {t('hero.subtitle.line1')} 
+            <span class="block">
+              {t('hero.subtitle.line2')}
+            </span>
+          </p>
+        </div>
+        
+        <!-- CTA Button Animado -->
+        <div class="">
+          <AnimatedCTAButton 
+            href="#cotizacion" 
+            text={t('hero.cta')}
+          />
+        </div>
+      </div>
+      
+      <!-- Right Content - Hero Image -->
+      <div class="lg:pl-8 relative">
+        <div class="relative">
+          <img 
+            src="/Images/heroimage.webp" 
+            alt="Hombre con cajas de almacenamiento" 
+            class="w-full h-auto max-w-lg mx-auto"
+            width="512"
+            height="512"
+            loading="eager"
+            fetchpriority="high"
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .dots-pattern {
+    background-image: radial-gradient(circle, #222222 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+  }
+</style>
