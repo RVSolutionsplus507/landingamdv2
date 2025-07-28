@@ -9,15 +9,27 @@
 /icons/*
   Cache-Control: public, max-age=31536000
 
-# Security headers for Lighthouse Best Practices
+# Security headers for Lighthouse Best Practices - ENFORCED MODE
 /*
+  # XSS Protection and Content Security Policy (ENFORCED)
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://api.mapbox.com https://webforms.pipedrive.com https://cdn.pdx-2.pipedriveassets.com https://www.google.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://api.mapbox.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self' https://api.mapbox.com https://events.mapbox.com; frame-src https://webforms.pipedrive.com https://www.google.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://webforms.pipedrive.com; upgrade-insecure-requests
+  
+  # Cross-Origin Opener Policy for origin isolation
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Embedder-Policy: require-corp
+  Cross-Origin-Resource-Policy: same-origin
+  
+  # Frame control policies (multiple layers of protection)
   X-Frame-Options: DENY
+  
+  # Additional security headers
   X-Content-Type-Options: nosniff
   X-XSS-Protection: 1; mode=block
   Referrer-Policy: strict-origin-when-cross-origin
-  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
-  Strict-Transport-Security: max-age=31536000; includeSubDomains
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://api.mapbox.com https://webforms.pipedrive.com https://cdn.pdx-2.pipedriveassets.com https://www.google.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://api.mapbox.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.mapbox.com https://events.mapbox.com; frame-src https://webforms.pipedrive.com https://www.google.com
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  
+  # Permissions Policy (restrictive)
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), accelerometer=(), gyroscope=(), magnetometer=(), fullscreen=(self), picture-in-picture=()
 
 # Compression
 *.js

@@ -13,85 +13,16 @@
   "categories": ["business", "storage", "services"],
   "icons": [
     {
-      "src": "/favicon-16x16.png",
-      "sizes": "16x16",
-      "type": "image/png"
-    },
-    {
-      "src": "/favicon-32x32.png",
+      "src": "/favicon.webp",
       "sizes": "32x32",
-      "type": "image/png"
-    },
-    {
-      "src": "/apple-touch-icon.png",
-      "sizes": "180x180",
-      "type": "image/png"
-    },
-    {
-      "src": "/android-chrome-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png",
+      "type": "image/webp",
       "purpose": "any maskable"
     },
     {
-      "src": "/android-chrome-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png",
+      "src": "/Images/amdlogo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
       "purpose": "any maskable"
-    }
-  ],
-  "screenshots": [
-    {
-      "src": "/Images/screenshot-desktop.webp",
-      "sizes": "1280x720",
-      "type": "image/webp",
-      "form_factor": "wide",
-      "label": "Almacenajes Mini Depósitos - Desktop View"
-    },
-    {
-      "src": "/Images/screenshot-mobile.webp",
-      "sizes": "390x844",
-      "type": "image/webp",
-      "form_factor": "narrow",
-      "label": "Almacenajes Mini Depósitos - Mobile View"
-    }
-  ],
-  "shortcuts": [
-    {
-      "name": "Obtener Cotización",
-      "short_name": "Cotización",
-      "description": "Obtén una cotización rápida para tu mini depósito",
-      "url": "/#cotizacion",
-      "icons": [
-        {
-          "src": "/Images/icon-quote.png",
-          "sizes": "96x96"
-        }
-      ]
-    },
-    {
-      "name": "Ver Ubicaciones",
-      "short_name": "Sucursales",
-      "description": "Encuentra la sucursal más cercana",
-      "url": "/#sucursales",
-      "icons": [
-        {
-          "src": "/Images/icon-location.png",
-          "sizes": "96x96"
-        }
-      ]
-    },
-    {
-      "name": "Tamaños Disponibles",
-      "short_name": "Tamaños",
-      "description": "Explora los diferentes tamaños de depósitos",
-      "url": "/#tamanos",
-      "icons": [
-        {
-          "src": "/Images/icon-sizes.png",
-          "sizes": "96x96"
-        }
-      ]
     }
   ],
   "related_applications": [],
