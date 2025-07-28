@@ -1,6 +1,8 @@
 ---
 import { ClientRouter } from 'astro:transitions';
 import CookieConsent from '../components/CookieConsent.astro';
+import BfcacheOptimizer from '../components/BfcacheOptimizer.astro';
+import PerformanceMonitor from '../components/PerformanceMonitor.astro';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 import '../styles/global.css';
 
@@ -46,14 +48,13 @@ const {
 		<link rel="preconnect" href="https://api.mapbox.com" crossorigin>
 		<link rel="preconnect" href="https://webforms.pipedrive.com" crossorigin>
 		
-		<!-- Preload critical resources for performance -->
-		<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-		<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"></noscript>
+		<!-- Critical font preload to prevent layout shifts -->
+		<link rel="preload" href="https://fonts.gstatic.com/s/inter/v19/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2" as="font" type="font/woff2" crossorigin>
+		<link rel="preload" href="https://fonts.gstatic.com/s/inter/v19/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa2JL7.woff2" as="font" type="font/woff2" crossorigin>
 		
-		<!-- DNS prefetch for performance -->
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link rel="dns-prefetch" href="//api.mapbox.com">
+		<!-- Font CSS with display=swap to prevent FOIT -->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'; this.onload=null;">
+		<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"></noscript>
 		
 		<!-- Favicon optimizado -->
 		<link rel="icon" type="image/webp" href="/favicon.webp" />
@@ -71,6 +72,19 @@ const {
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="default" />
 		
+		<!-- Inline CSS to prevent font layout shifts -->
+		<style>
+			body {
+				font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+				font-display: swap;
+			}
+			/* Prevent layout shift for primary color text */
+			.text-\[var\(--color-primary\)\] {
+				font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+				font-display: swap;
+			}
+		</style>
+		
 		<ClientRouter />
 		
 		<!-- Slot para SEO component desde pages -->
@@ -86,6 +100,12 @@ const {
 		
 		<!-- Cookie Consent Banner -->
 		<CookieConsent />
+		
+		<!-- bfcache Optimization -->
+		<BfcacheOptimizer />
+		
+		<!-- Performance Monitoring -->
+		<PerformanceMonitor />
 		
 		<!-- Structured data para breadcrumbs -->
 		<script type="application/ld+json">

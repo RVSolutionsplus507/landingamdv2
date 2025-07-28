@@ -32,23 +32,47 @@ const t = useTranslations(lang);
                id="idxgylty">
             <!-- Lazy load Pipedrive script for better bfcache performance -->
             <script>
-              // Load Pipedrive form when section is visible
-              const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                  if (entry.isIntersecting) {
-                    const script = document.createElement('script');
-                    script.src = 'https://webforms.pipedrive.com/f/loader';
-                    script.async = true;
-                    document.head.appendChild(script);
-                    observer.disconnect();
-                  }
-                });
-              }, { threshold: 0.1 });
+              let pipedriveLoaded = false;
+              let pipedriveObserver: IntersectionObserver | null = null;
               
-              document.addEventListener('DOMContentLoaded', () => {
+              // Load Pipedrive form when section is visible
+              function initializePipedriveForm() {
+                if (pipedriveLoaded) return;
+                
+                pipedriveObserver = new IntersectionObserver((entries) => {
+                  entries.forEach(entry => {
+                    if (entry.isIntersecting && !pipedriveLoaded) {
+                      const script = document.createElement('script');
+                      script.src = 'https://webforms.pipedrive.com/f/loader';
+                      script.async = true;
+                      script.onload = () => { pipedriveLoaded = true; };
+                      document.head.appendChild(script);
+                      pipedriveObserver?.disconnect();
+                      pipedriveObserver = null;
+                    }
+                  });
+                }, { threshold: 0.1 });
+                
                 const formElement = document.getElementById('idxgylty');
-                if (formElement) observer.observe(formElement);
-              });
+                if (formElement) pipedriveObserver.observe(formElement);
+              }
+              
+              // Cleanup function for bfcache optimization
+              function cleanupPipedrive() {
+                if (pipedriveObserver) {
+                  pipedriveObserver.disconnect();
+                  pipedriveObserver = null;
+                }
+                // Remove Pipedrive scripts and iframes for bfcache
+                const pipedriveScripts = document.querySelectorAll('script[src*="pipedrive"]');
+                pipedriveScripts.forEach(script => script.remove());
+              }
+              
+              // bfcache optimization event listeners
+              window.addEventListener('pagehide', cleanupPipedrive);
+              window.addEventListener('beforeunload', cleanupPipedrive);
+              
+              document.addEventListener('DOMContentLoaded', initializePipedriveForm);
             </script>
             <iframe
               src="https://webforms.pipedrive.com/f/30ZjsoyUUNVXItMSgeKPoBkCTPffsPlFQPjz4j5UwN2QDTG2DGlSgsHGoREn47ASD?embeded=1&uuid=idxgylty"
