@@ -23,14 +23,14 @@ const t = useTranslations(lang);
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <!-- Contenido izquierdo - Texto -->
         <div class="space-y-6">
-          <h2 class="text-4xl lg:text-5xl xl:text-6xl font-bold text-[var(--color-dark)] leading-tight">
+          <h2 class="text-4xl lg:text-5xl xl:text-6xl font-bold text-[var(--color-dark)] leading-tight text-center lg:text-left">
             {t('services.storage.title')} 
             <span class="text-[var(--color-primary)]">{t('services.storage.highlight')}</span>
           </h2>
           <p class="text-lg lg:text-xl text-gray-600 leading-relaxed">
             {t('services.storage.description')}
           </p>
-          <p class="text-xl lg:text-2xl font-bold text-[var(--color-dark)]">
+          <p class="text-xl lg:text-2xl font-bold text-[var(--color-dark)] text-center lg:text-left">
             {t('services.storage.tagline')}
           </p>
         </div>
@@ -38,17 +38,17 @@ const t = useTranslations(lang);
         <!-- Contenido derecho - Imágenes centradas en mobile, escalera en desktop -->
         <div class="relative h-80 sm:h-96 lg:h-[500px]">
           <!-- Imagen solucions2 - más grande -->
-          <div class="absolute top-4 left-1/2 transform -translate-x-1/2 sm:transform-none sm:-top-10 sm:-right-10 lg:-top-20 lg:-right-20 z-10">
+          <div class="absolute top-4 right-4 sm:top-2 sm:right-2 md:-top-10 md:-right-5 lg:-top-20 lg:-right-20 z-10">
             <img src="/Images/solucions2.webp" 
               alt="Instalaciones" 
-              class="w-40 sm:w-40 md:w-48 lg:w-96 rounded-2xl shadow-xl"
+              class="w-48 sm:w-52 md:w-56 lg:w-96 rounded-2xl shadow-xl"
               width="384" height="256" loading="lazy">
           </div>
           <!-- Imagen solucion1 - más pequeña -->
-          <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 sm:bottom-0 sm:left-8 sm:transform-none md:left-12 lg:left-20 lg:-bottom-12 z-20">
+          <div class="absolute bottom-4 left-4 sm:bottom-2 sm:left-2 md:bottom-0 md:left-8 lg:left-20 lg:-bottom-12 z-20">
             <img src="/Images/solucion1.webp" 
               alt="Empleado de Almacenajes" 
-              class="w-32 sm:w-32 md:w-40 lg:w-72 rounded-2xl shadow-xl"
+              class="w-40 sm:w-44 md:w-48 lg:w-72 rounded-2xl shadow-xl"
               width="288" height="192" loading="lazy">
           </div>
         </div>
@@ -59,7 +59,7 @@ const t = useTranslations(lang);
   <!-- SUBSECCIÓN 2: Beneficios exclusivos para tu comodidad -->
   <div class="py-8 lg:py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-left mb-12">
+      <div class="text-center lg:text-left mb-12">
         <h2 class="text-2xl lg:text-3xl xl:text-4xl font-bold text-[var(--color-dark)] leading-tight">
           {t('services.benefits.title')}<br>
           <span class="text-[var(--color-dark)]">{t('services.benefits.subtitle')}</span>
@@ -168,41 +168,41 @@ const t = useTranslations(lang);
         </h2>
       </div>
       
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
         <!-- Paso 1 -->
-        <div class="bg-white rounded-2xl p-6 text-center">
-          <div class="w-16 h-16 bg-[var(--color-primary)] rounded-2xl flex items-center justify-center mx-auto mb-4">
-            <img src="/icons/gancho.svg" alt="Gancho" class="w-10 h-10" / width="40" height="40" loading="lazy">
+        <div class="bg-white rounded-2xl p-4 lg:p-6 text-center">
+          <div class="w-12 h-12 lg:w-16 lg:h-16 bg-[var(--color-primary)] rounded-2xl flex items-center justify-center mx-auto mb-3 lg:mb-4">
+            <img src="/icons/gancho.svg" alt="Gancho" class="w-6 h-6 lg:w-10 lg:h-10" / width="40" height="40" loading="lazy">
           </div>
-          <h3 class="text-lg font-black text-[var(--color-dark)] mb-2">{t('services.step1.title')}</h3>
-          <p class="text-sm text-gray-600">{t('services.step1.description')}</p>
+          <h3 class="text-sm lg:text-xl xl:text-2xl font-black text-[var(--color-dark)] mb-2 lg:mb-3">{t('services.step1.title')}</h3>
+          <p class="text-xs lg:text-base xl:text-lg text-gray-600 leading-relaxed">{t('services.step1.description')}</p>
         </div>
         
         <!-- Paso 2 -->
-        <div class="bg-white rounded-2xl p-6 text-center">
-          <div class="w-16 h-16 bg-[var(--color-primary)] rounded-2xl flex items-center justify-center mx-auto mb-4">
-            <img src="/icons/gancho.svg" alt="Gancho" class="w-10 h-10" / width="40" height="40" loading="lazy">
+        <div class="bg-white rounded-2xl p-4 lg:p-6 text-center">
+          <div class="w-12 h-12 lg:w-16 lg:h-16 bg-[var(--color-primary)] rounded-2xl flex items-center justify-center mx-auto mb-3 lg:mb-4">
+            <img src="/icons/gancho.svg" alt="Gancho" class="w-6 h-6 lg:w-10 lg:h-10" / width="40" height="40" loading="lazy">
           </div>
-          <h3 class="text-lg font-black text-[var(--color-dark)] mb-2">{t('services.step2.title')}</h3>
-          <p class="text-sm text-gray-600">{t('services.step2.description')}</p>
+          <h3 class="text-sm lg:text-xl xl:text-2xl font-black text-[var(--color-dark)] mb-2 lg:mb-3">{t('services.step2.title')}</h3>
+          <p class="text-xs lg:text-base xl:text-lg text-gray-600 leading-relaxed">{t('services.step2.description')}</p>
         </div>
         
         <!-- Paso 3 -->
-        <div class="bg-white rounded-2xl p-6 text-center">
-          <div class="w-16 h-16 bg-[var(--color-primary)] rounded-2xl flex items-center justify-center mx-auto mb-4">
-            <img src="/icons/gancho.svg" alt="Gancho" class="w-10 h-10" / width="40" height="40" loading="lazy">
+        <div class="bg-white rounded-2xl p-4 lg:p-6 text-center">
+          <div class="w-12 h-12 lg:w-16 lg:h-16 bg-[var(--color-primary)] rounded-2xl flex items-center justify-center mx-auto mb-3 lg:mb-4">
+            <img src="/icons/gancho.svg" alt="Gancho" class="w-6 h-6 lg:w-10 lg:h-10" / width="40" height="40" loading="lazy">
           </div>
-          <h3 class="text-lg font-black text-[var(--color-dark)] mb-2">{t('services.step3.title')}</h3>
-          <p class="text-sm text-gray-600">{t('services.step3.description')}</p>
+          <h3 class="text-sm lg:text-xl xl:text-2xl font-black text-[var(--color-dark)] mb-2 lg:mb-3">{t('services.step3.title')}</h3>
+          <p class="text-xs lg:text-base xl:text-lg text-gray-600 leading-relaxed">{t('services.step3.description')}</p>
         </div>
         
         <!-- Paso 4 -->
-        <div class="bg-white rounded-2xl p-6 text-center">
-          <div class="w-16 h-16 bg-[var(--color-primary)] rounded-2xl flex items-center justify-center mx-auto mb-4">
-            <img src="/icons/gancho.svg" alt="Gancho" class="w-10 h-10" / width="40" height="40" loading="lazy">
+        <div class="bg-white rounded-2xl p-4 lg:p-6 text-center">
+          <div class="w-12 h-12 lg:w-16 lg:h-16 bg-[var(--color-primary)] rounded-2xl flex items-center justify-center mx-auto mb-3 lg:mb-4">
+            <img src="/icons/gancho.svg" alt="Gancho" class="w-6 h-6 lg:w-10 lg:h-10" / width="40" height="40" loading="lazy">
           </div>
-          <h3 class="text-lg font-black text-[var(--color-dark)] mb-2">{t('services.step4.title')}</h3>
-          <p class="text-sm text-gray-600">{t('services.step4.description')}</p>
+          <h3 class="text-sm lg:text-xl xl:text-2xl font-black text-[var(--color-dark)] mb-2 lg:mb-3">{t('services.step4.title')}</h3>
+          <p class="text-xs lg:text-base xl:text-lg text-gray-600 leading-relaxed">{t('services.step4.description')}</p>
         </div>
       </div>
     </div>

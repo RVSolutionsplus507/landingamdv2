@@ -6,17 +6,17 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<section id="cotizacion" class="py-16 lg:py-16 flex items-center justify-center min-h-screen">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+<section id="cotizacion" class="py-4 sm:py-6 lg:py-8 flex items-center justify-center min-h-screen">
+  <div class="max-w-6xl lg:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex items-center justify-center">
     
     <!-- Card naranja centrada con fondo, patrón de dots y rounded-xl -->
-    <div class="bg-[var(--color-primary)] rounded-2xl p-8 lg:p-12 relative overflow-hidden shadow-2xl">
+    <div class="bg-[var(--color-primary)] rounded-2xl p-6 sm:p-8 lg:p-10 relative overflow-hidden shadow-2xl">
       <!-- Patrón de dots en el fondo -->
       <div class="absolute inset-0 opacity-10">
         <div class="w-full h-full" style="background-image: radial-gradient(circle, white 1px, transparent 1px); background-size: 20px 20px;"></div>
       </div>
       
-      <div class="relative z-10 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+      <div class="relative z-10 grid lg:grid-cols-2 gap-6 lg:gap-8 items-start lg:items-center">
         
         <!-- Contenido izquierdo - Pregunta -->
         <div class="text-white">
@@ -26,7 +26,7 @@ const t = useTranslations(lang);
         </div>
         
         <!-- Contenido derecho - Formulario de Pipedrive más ancho -->
-        <div class="bg-white rounded-2xl p-4 lg:p-6 shadow-lg w-full">
+        <div class="bg-white rounded-2xl p-3 sm:p-4 lg:p-5 shadow-lg w-full">
           <div class="pipedriveWebForms"
                data-pd-webforms="https://webforms.pipedrive.com/f/30ZjsoyUUNVXItMSgeKPoBkCTPffsPlFQPjz4j5UwN2QDTG2DGlSgsHGoREn47ASD"
                id="idxgylty">
@@ -78,7 +78,7 @@ const t = useTranslations(lang);
               src="https://webforms.pipedrive.com/f/30ZjsoyUUNVXItMSgeKPoBkCTPffsPlFQPjz4j5UwN2QDTG2DGlSgsHGoREn47ASD?embeded=1&uuid=idxgylty"
               name="https://almacenajes.net/?page_id=5234&preview=true-idxgylty"
               title="Web Forms"
-              style="width: 100%; border: none; height: 400px;"
+              style="width: 100%; border: none; height: 100%; min-height: 600px;"
               class="rounded-xl"
               sandbox="allow-forms allow-scripts allow-same-origin"
               referrerpolicy="strict-origin-when-cross-origin">
@@ -93,21 +93,45 @@ const t = useTranslations(lang);
 </section>
 
 <style>
-  /* Asegurar que el iframe se vea bien en todos los dispositivos */
-  .pipedriveWebForms iframe {
-    border-radius: 0.5rem;
+  /* Asegurar que el iframe se vea bien en todos los dispositivos sin scroll interno */
+  .pipedriveWebForms {
+    height: auto;
+    min-height: 600px;
   }
   
-  /* Responsive adjustments */
+  .pipedriveWebForms iframe {
+    border-radius: 0.75rem;
+    overflow: hidden;
+  }
+  
+  /* Responsive adjustments - alturas dinámicas sin scroll interno */
   @media (max-width: 1024px) {
+    .pipedriveWebForms {
+      min-height: 650px;
+    }
+    
     .pipedriveWebForms iframe {
-      height: 500px;
+      min-height: 650px;
     }
   }
   
   @media (max-width: 768px) {
+    .pipedriveWebForms {
+      min-height: 700px;
+    }
+    
     .pipedriveWebForms iframe {
-      height: 450px;
+      min-height: 700px;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .pipedriveWebForms {
+      min-height: 750px;
+    }
+    
+    .pipedriveWebForms iframe {
+      min-height: 750px;
     }
   }
 </style>

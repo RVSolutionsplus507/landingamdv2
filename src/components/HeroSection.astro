@@ -13,23 +13,28 @@ const t = useTranslations(lang);
     <div class="dots-pattern w-full h-full"></div>
   </div>
   <!-- Main Content -->
-  <div class="relative z-10 max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24">
     <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
       
       <!-- Left Content -->
-      <div class="space-y-2 mt-20 lg:pr-8">
-        <div class="space-y-20">
-          <h1 class="text-4xl md:text-4xl lg:text-5xl font-bold text-[var(--color-dark)] leading-none" style="font-size: 2.25rem;">
-            <span class="block">
+      <div class="space-y-8 mt-8 lg:mt-12 lg:pr-8">
+        <div class="space-y-8">
+          <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-[var(--color-dark)] text-center lg:text-left leading-tight">
+            <span class="block md:hidden mb-2">
               {t('hero.title.line1')}
             </span>
-            <span class="block text-[var(--color-dark)]">
+            <span class="block md:hidden text-[var(--color-dark)]">
               {t('hero.title.line2')} <span class="text-[var(--color-primary)]">{t('hero.title.highlight')}</span>
+            </span>
+            <span class="hidden md:block text-[var(--color-dark)] text-center lg:text-left">
+              {t('hero.title.line1')} {t('hero.title.line2')} <span class="text-[var(--color-primary)]">{t('hero.title.highlight')}</span>
             </span>
           </h1>
           
-          <p class="text-lg md:text-2xl text-gray-600 leading-none">
-            {t('hero.subtitle.line1')} 
+          <p class="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-600 leading-relaxed max-w-2xl text-center lg:text-left">
+            <span class="block mb-2">
+              {t('hero.subtitle.line1')}
+            </span>
             <span class="block">
               {t('hero.subtitle.line2')}
             </span>
@@ -37,7 +42,7 @@ const t = useTranslations(lang);
         </div>
         
         <!-- CTA Button Animado -->
-        <div class="">
+        <div class="pt-4 flex justify-center lg:justify-start">
           <AnimatedCTAButton 
             href="#cotizacion" 
             text={t('hero.cta')}
