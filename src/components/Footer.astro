@@ -50,9 +50,14 @@ const t = useTranslations(lang);
         <div class="mt-4">
           <a 
             href="#cotizacion" 
-            class="inline-block border border-[var(--color-primary)] text-[var(--color-primary)] px-6 py-2 rounded font-normal text-sm hover:bg-[var(--color-primary)] hover:text-white transition-all duration-300"
+            class="inline-block border border-[var(--color-primary)] text-[var(--color-primary)] px-6 py-2 rounded font-normal text-sm hover:bg-[var(--color-primary)] hover:text-white transition-all duration-300 text-center leading-tight"
           >
-            <span set:html={t('footer.access.cta').replace('\n', '<br>')} />
+            <span class="block pointer-events-none">
+              {t('footer.access.cta').split('\n')[0]}
+            </span>
+            <span class="block pointer-events-none">
+              {t('footer.access.cta').split('\n')[1]}
+            </span>
           </a>
         </div>
       </div>
@@ -135,9 +140,17 @@ const t = useTranslations(lang);
         
         if (targetElement) {
           const element = targetElement as HTMLElement;
-          const offsetTop = element.offsetTop - 80;
+          // Ajuste específico para diferentes secciones
+          let offsetAdjustment = 80; // Default para navbar fijo
+          
+          // Para la sección de cotización, usar menos offset para centrarla mejor
+          if (targetId === '#cotizacion') {
+            offsetAdjustment = 20;
+          }
+          
+          const offsetTop = element.offsetTop - offsetAdjustment;
           window.scrollTo({
-            top: offsetTop,
+            top: Math.max(0, offsetTop), // Asegurar que no sea negativo
             behavior: 'smooth'
           });
         }

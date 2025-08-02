@@ -185,9 +185,17 @@ const t = useTranslations(lang);
         
         if (targetElement) {
           const element = targetElement as HTMLElement;
-          const offsetTop = element.offsetTop - 80; // Ajuste por navbar fijo
+          // Ajuste específico para diferentes secciones
+          let offsetAdjustment = 80; // Default para navbar fijo
+          
+          // Para la sección de cotización, usar menos offset para centrarla mejor
+          if (targetId === '#cotizacion') {
+            offsetAdjustment = 20;
+          }
+          
+          const offsetTop = element.offsetTop - offsetAdjustment;
           window.scrollTo({
-            top: offsetTop,
+            top: Math.max(0, offsetTop), // Asegurar que no sea negativo
             behavior: 'smooth'
           });
         }
