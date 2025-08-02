@@ -43,18 +43,12 @@ const {
 		<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
 		
 		<!-- Preconnect to external domains for faster loading -->
-		<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link rel="preconnect" href="https://api.mapbox.com" crossorigin>
 		<link rel="preconnect" href="https://webforms.pipedrive.com" crossorigin>
 		
-		<!-- Critical font preload to prevent layout shifts -->
-		<link rel="preload" href="https://fonts.gstatic.com/s/inter/v19/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2" as="font" type="font/woff2" crossorigin>
-		<link rel="preload" href="https://fonts.gstatic.com/s/inter/v19/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa2JL7.woff2" as="font" type="font/woff2" crossorigin>
-		
-		<!-- Font CSS with display=swap to prevent FOIT -->
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'; this.onload=null;">
-		<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"></noscript>
+		<!-- Preload Gilroy fonts for better performance -->
+		<link rel="preload" href="/fonts/Gilroy-Light.woff" as="font" type="font/woff" crossorigin>
+		<link rel="preload" href="/fonts/Gilroy-Extrabold.woff" as="font" type="font/woff" crossorigin>
 		
 		<!-- Favicon optimizado -->
 		<link rel="icon" type="image/webp" href="/favicon.webp" />
@@ -72,15 +66,26 @@ const {
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="default" />
 		
-		<!-- Inline CSS to prevent font layout shifts -->
+		<!-- Gilroy Font Declarations -->
 		<style>
-			body {
-				font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+			@font-face {
+				font-family: 'Gilroy';
+				src: url('/fonts/Gilroy-Light.woff') format('woff');
+				font-weight: 300;
+				font-style: normal;
 				font-display: swap;
 			}
-			/* Prevent layout shift for primary color text */
-			.text-\[var\(--color-primary\)\] {
-				font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+			
+			@font-face {
+				font-family: 'Gilroy';
+				src: url('/fonts/Gilroy-Extrabold.woff') format('woff');
+				font-weight: 800;
+				font-style: normal;
+				font-display: swap;
+			}
+			
+			body {
+				font-family: 'Gilroy', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 				font-display: swap;
 			}
 		</style>
@@ -142,7 +147,7 @@ const {
 		padding: 0;
 		width: 100%;
 		height: 100%;
-		font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+		font-family: 'Gilroy', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 		color: var(--color-dark);
 		background-color: var(--color-white);
 	}

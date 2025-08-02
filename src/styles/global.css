@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+/* Configuración de fuentes Gilroy para Tailwind CSS v4 */
+@theme {
+  --font-family-sans: Gilroy, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-family-gilroy: Gilroy, sans-serif;
+  
+  /* Definir los pesos de fuente disponibles */
+  --font-weight-light: 300;
+  --font-weight-extrabold: 800;
+}
