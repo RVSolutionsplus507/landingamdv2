@@ -3,9 +3,17 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import AnimatedCTAButton from '../components/AnimatedCTAButton.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const pageTitle = lang === 'es' 
+  ? 'Página no encontrada - Almacenajes Minidepósitos' 
+  : 'Page not found - Almacenajes Minidepósitos';
 ---
 
-<Layout title="Página no encontrada - Almacenajes Mini Depósitos">
+<Layout title={pageTitle} description={t('error.404.description')}>
 	<Navbar />
 	<main class="min-h-screen bg-gradient-to-br from-gray-50 to-orange-50 flex items-center justify-center px-4">
 		<div class="max-w-4xl mx-auto text-center">
@@ -22,11 +30,13 @@ import AnimatedCTAButton from '../components/AnimatedCTAButton.astro';
 			<!-- Contenido principal -->
 			<div class="space-y-6 mb-12">
 				<h2 class="text-3xl md:text-4xl font-bold text-[var(--color-dark)] leading-tight">
-					¡Oops! Esta página se perdió
+					{t('error.404.title')}
 				</h2>
 				<p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-					Parece que la página que buscas no existe o fue movida. Pero no te preocupes, 
-					tenemos muchas soluciones de almacenamiento esperándote.
+					{t('error.404.subtitle')}
+				</p>
+				<p class="text-base text-gray-500 max-w-xl mx-auto">
+					{t('error.404.description')}
 				</p>
 			</div>
 

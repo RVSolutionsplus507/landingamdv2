@@ -13,6 +13,7 @@ export const ui = {
     'nav.sizes': 'Tamaños',
     'nav.locations': 'Sucursales',
     'nav.recommendations': 'Recomendaciones',
+    'nav.blog': 'Blog',
     'nav.quote': 'Cotización',
     'nav.menu': 'Abrir menú',
     
@@ -182,6 +183,14 @@ export const ui = {
     'common.email': 'Email',
     'common.address': 'Dirección',
     'common.more': 'Ver más',
+    
+    // 404 Page
+    'error.404.title': 'Página no encontrada',
+    'error.404.subtitle': 'Lo sentimos, la página que buscas no existe.',
+    'error.404.description': 'Es posible que la página haya sido movida, eliminada o que hayas ingresado una URL incorrecta.',
+    'error.404.home': 'Volver al inicio',
+    'error.404.blog': 'Ir al blog',
+    'error.404.contact': 'Contactanos',
   },
   en: {
     // Navbar - US Native SEO optimized
@@ -190,6 +199,7 @@ export const ui = {
     'nav.sizes': 'Unit Sizes',
     'nav.locations': 'Locations',
     'nav.recommendations': 'Storage Tips',
+    'nav.blog': 'Blog',
     'nav.quote': 'Get Quote',
     'nav.menu': 'Menu',
     
@@ -356,6 +366,14 @@ export const ui = {
     'common.email': 'Email',
     'common.address': 'Address',
     'common.more': 'Learn more',
+    
+    // 404 Page
+    'error.404.title': 'Page not found',
+    'error.404.subtitle': 'Sorry, the page you are looking for does not exist.',
+    'error.404.description': 'The page may have been moved, deleted, or you may have entered an incorrect URL.',
+    'error.404.home': 'Go to homepage',
+    'error.404.blog': 'Go to blog',
+    'error.404.contact': 'Contact us',
   },
 } as const;
 

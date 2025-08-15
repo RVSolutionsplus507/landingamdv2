@@ -1,0 +1,254 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BlogBreadcrumbs from '../components/BlogBreadcrumbs.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Blog articles data
+const blogArticles: Array<{
+  id: number;
+  slug: string;
+  title: string;
+  excerpt: string;
+  image: string;
+  date: string;
+  author: string;
+  readTime: string;
+  category: string;
+  tags: string[];
+}> = [
+  {
+    id: 1,
+    slug: 'como-elegir-tamano-perfecto-minideposito',
+    title: 'Cómo elegir el tamaño perfecto para tu mini depósito',
+    excerpt: 'Guía completa para determinar qué tamaño de mini depósito necesitas según tus pertenencias y presupuesto.',
+    image: '/Images/carousel1.webp',
+    date: '2024-03-15',
+    author: 'Almacenajes Mini Depósitos',
+    readTime: '5 min',
+    category: 'Guías',
+    tags: ['tamaños', 'consejos', 'almacenamiento']
+  },
+  {
+    id: 2,
+    slug: 'consejos-seguridad-almacenar-documentos-importantes',
+    title: 'Consejos de seguridad para almacenar documentos importantes',
+    excerpt: 'Aprende las mejores prácticas para proteger tus documentos más valiosos en un mini depósito.',
+    image: '/Images/carousel2.webp',
+    date: '2024-03-10',
+    author: 'Almacenajes Mini Depósitos',
+    readTime: '4 min',
+    category: 'Seguridad',
+    tags: ['documentos', 'seguridad', 'protección']
+  },
+  {
+    id: 3,
+    slug: 'organizar-mudanza-mini-deposito-temporal',
+    title: 'Cómo organizar tu mudanza usando un mini depósito temporal',
+    excerpt: 'Estrategias efectivas para hacer tu mudanza más fácil utilizando almacenamiento temporal.',
+    image: '/Images/carousel3.webp',
+    date: '2024-03-05',
+    author: 'Almacenajes Mini Depósitos',
+    readTime: '6 min',
+    category: 'Mudanzas',
+    tags: ['mudanza', 'organización', 'temporal']
+  },
+  {
+    id: 4,
+    slug: 'ventajas-minidepositos-vs-bodega-tradicional',
+    title: 'Ventajas de los mini depósitos vs. bodega tradicional',
+    excerpt: 'Comparación detallada entre mini depósitos modernos y bodegas tradicionales de alquiler.',
+    image: '/Images/carousel4.webp',
+    date: '2024-02-28',
+    author: 'Almacenajes Mini Depósitos',
+    readTime: '7 min',
+    category: 'Comparaciones',
+    tags: ['ventajas', 'comparación', 'bodega']
+  },
+  {
+    id: 5,
+    slug: 'preparar-objetos-almacenamiento-largo-plazo',
+    title: 'Cómo preparar tus objetos para almacenamiento a largo plazo',
+    excerpt: 'Técnicas y materiales necesarios para proteger tus pertenencias durante almacenamiento prolongado.',
+    image: '/Images/carousel5.webp',
+    date: '2024-02-20',
+    author: 'Almacenajes Mini Depósitos',
+    readTime: '8 min',
+    category: 'Conservación',
+    tags: ['preparación', 'largo plazo', 'conservación']
+  }
+];
+
+const pageTitle = lang === 'es' ? 'Blog - Almacenajes Minidepósitos' : 'Blog - Almacenajes Minidepósitos';
+const pageDescription = lang === 'es' 
+  ? 'Consejos, guías y noticias sobre almacenamiento y mini depósitos en Panamá. Aprende cómo aprovechar al máximo tu espacio de almacenaje.'
+  : 'Tips, guides and news about storage and mini warehouses in Panama. Learn how to make the most of your storage space.';
+---
+
+<Layout 
+  title={pageTitle}
+  description={pageDescription}
+>
+  <!-- Schema.org BlogPosting structured data -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": lang === 'es' ? 'Blog - Almacenajes Minidepósitos - AMD' : 'Almacenajes Minidepósitos Blog - AMD',
+    "description": pageDescription,
+    "url": `https://almacenajes-minidepositos.com${lang === 'en' ? '/en' : ''}/blog`,
+    "publisher": {
+      "@type": "Organization",
+      "name": "Almacenajes Minidepósitos",
+      "url": "https://almacenajes-minidepositos.com"
+    },
+    "blogPost": blogArticles.map(article => ({
+      "@type": "BlogPosting",
+      "headline": article.title,
+      "description": article.excerpt,
+      "url": `https://almacenajes-minidepositos.com${lang === 'en' ? '/en' : ''}/blog/${article.slug}`,
+      "datePublished": article.date,
+      "author": {
+        "@type": "Organization",
+        "name": article.author
+      },
+      "image": `https://almacenajes-minidepositos.com${article.image}`,
+      "articleSection": article.category,
+      "keywords": article.tags.join(', ')
+    }))
+  })} />
+
+  <main class="pt-16">
+    <!-- Breadcrumbs -->
+    <BlogBreadcrumbs />
+    
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-gray-50 to-gray-100 py-16 lg:py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <h1 class="text-4xl lg:text-5xl font-bold text-[var(--color-dark)] mb-6">
+            {lang === 'es' ? 'Blog - Almacenajes Minidepósitos' : 'Blog - Almacenajes Minidepósitos'}
+          </h1>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            {lang === 'es' 
+              ? 'Consejos expertos, guías prácticas y las últimas noticias sobre almacenamiento y mini depósitos en Panamá.'
+              : 'Expert tips, practical guides and the latest news about storage and mini warehouses in Panama.'
+            }
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Articles Grid -->
+    <section class="py-16 lg:py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {blogArticles.map((article) => (
+            <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+              <div class="relative">
+                <img 
+                  src={article.image} 
+                  alt={article.title}
+                  class="w-full h-48 object-cover"
+                  loading="lazy"
+                >
+                <div class="absolute top-4 left-4">
+                  <span class="bg-[var(--color-primary)] text-white px-3 py-1 rounded-full text-sm font-medium">
+                    {article.category}
+                  </span>
+                </div>
+              </div>
+              
+              <div class="p-6">
+                <div class="flex items-center text-sm text-gray-500 mb-3">
+                  <time datetime={article.date}>
+                    {new Date(article.date).toLocaleDateString(lang === 'es' ? 'es-ES' : 'en-US', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric'
+                    })}
+                  </time>
+                  <span class="mx-2">•</span>
+                  <span>{article.readTime}</span>
+                </div>
+                
+                <h2 class="text-xl font-bold text-[var(--color-dark)] mb-3 line-clamp-2">
+                  {article.title}
+                </h2>
+                
+                <p class="text-gray-600 mb-4 line-clamp-3">
+                  {article.excerpt}
+                </p>
+                
+                <div class="flex flex-wrap gap-2 mb-4">
+                  {article.tags.slice(0, 2).map((tag) => (
+                    <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">
+                      #{tag}
+                    </span>
+                  ))}
+                </div>
+                
+                <a 
+                  href={`/blog/${article.slug}`}
+                  class="inline-flex items-center text-[var(--color-primary)] font-medium hover:text-[var(--color-primary)]/80 transition-colors duration-200"
+                >
+                  {lang === 'es' ? 'Leer más' : 'Read more'}
+                  <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                  </svg>
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Subscription -->
+    <section class="bg-[var(--color-dark)] py-16">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-bold text-white mb-4">
+          {lang === 'es' ? 'Mantente informado' : 'Stay informed'}
+        </h2>
+        <p class="text-gray-300 mb-8 text-lg">
+          {lang === 'es' 
+            ? 'Recibe consejos de almacenamiento y ofertas especiales directamente en tu correo.'
+            : 'Get storage tips and special offers delivered straight to your inbox.'
+          }
+        </p>
+        
+        <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+          <input 
+            type="email" 
+            placeholder={lang === 'es' ? 'Tu correo electrónico' : 'Your email address'}
+            class="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
+            required
+          >
+          <button 
+            type="submit"
+            class="bg-[var(--color-primary)] text-white px-6 py-3 rounded-lg font-medium hover:bg-[var(--color-primary)]/90 transition-colors duration-200"
+          >
+            {lang === 'es' ? 'Suscribirse' : 'Subscribe'}
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>
