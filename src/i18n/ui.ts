@@ -25,21 +25,21 @@ export const ui = {
     'hero.cta': 'Obtén tu cotización',
     
     // Quote Section
-    'quote.title': '¿Buscas alquiler de bodegas pequeñas o mini depósitos en Panamá?',
+    'quote.title': '¿Buscas alquiler de bodegas o mini depósitos en Panamá?',
     
     // Services
     'services.storage.title': 'Soluciones de almacenajes',
     'services.storage.highlight': 'rápido y confiable',
-    'services.storage.description': 'Almacenajes Minidepósitos: 30 años de experiencia en Panamá. Acceso directo a bodegas, seguridad 24/7 y flexibilidad a precios amigables.',
+    'services.storage.description': 'Almacenajes Minidepósitos: 40 años de experiencia en Panamá. Acceso directo a bodegas, seguridad 24/7 y flexibilidad a precios amigables.',
     'services.storage.tagline': 'Tu tranquilidad es nuestra prioridad.',
     'services.benefits.title': 'Beneficios exclusivos',
     'services.benefits.subtitle': 'para tu comodidad',
     'services.benefit1.line1': 'Sin amarres a',
     'services.benefit1.line2': 'largos contratos',
-    'services.benefit2.line1': 'Mudanza de',
-    'services.benefit2.line2': 'carga',
-    'services.benefit3.line1': 'Seguridad 24/7',
-    'services.benefit3.line2': 'días',
+    'services.benefit2.line1': 'Acceso con',
+    'services.benefit2.line2': 'tu auto',
+    'services.benefit3.line1': 'Acceso a tu deposito',
+    'services.benefit3.line2': '365 días',
     'services.benefit4.line1': 'Múltiples',
     'services.benefit4.line2': 'tamaños',
     'services.benefit5.line1': 'Montacarga',
@@ -109,7 +109,7 @@ export const ui = {
     'recommendations.accordion7.title': 'Consejos específicos para diferentes artículos',
     
     // Sub-accordion 1 - Colchones
-    'recommendations.sub1.title': 'Empacar y etiquetar correctamente',
+    'recommendations.sub1.title': 'Almacenamiento seguro para colchones',
     'recommendations.sub1.tip1': 'Aspira y limpia tu colchón antes de guardarlo.',
     'recommendations.sub1.tip2': 'Usa una funda plástica resistente para protegerlo.',
     'recommendations.sub1.tip3': 'Almacena el colchón horizontalmente para evitar deformaciones.',
@@ -207,16 +207,16 @@ export const ui = {
     // Services - US Professional tone
     'services.storage.title': 'Premium Self Storage',
     'services.storage.highlight': 'secure & convenient',
-    'services.storage.description': 'Almacenajes Self Storage: 30+ years serving Panama. Drive-up access, advanced security systems, and flexible terms at competitive rates.',
+    'services.storage.description': 'Almacenajes Self Storage: 40+ years serving Panama. Drive-up access, advanced security systems, and flexible terms at competitive rates.',
     'services.storage.tagline': 'Your belongings deserve the best protection.',
     'services.benefits.title': 'Why Choose Us',
     'services.benefits.subtitle': 'premium features included',
     'services.benefit1.line1': 'Flexible',
     'services.benefit1.line2': 'lease terms',
-    'services.benefit2.line1': 'Moving',
-    'services.benefit2.line2': 'support',
-    'services.benefit3.line1': '24/7 Security',
-    'services.benefit3.line2': 'surveillance',
+    'services.benefit2.line1': 'Drive-up',
+    'services.benefit2.line2': 'access',
+    'services.benefit3.line1': 'Access to your unit',
+    'services.benefit3.line2': '365 days',
     'services.benefit4.line1': 'Multiple',
     'services.benefit4.line2': 'sizes',
     'services.benefit5.line1': 'Free',
@@ -299,7 +299,7 @@ export const ui = {
     'recommendations.accordion7.title': 'Specific tips for different items',
     
     // Sub-accordion 1 - Mattress storage expertise
-    'recommendations.sub1.title': 'Professional mattress storage',
+    'recommendations.sub1.title': 'Safety storage for mattresses',
     'recommendations.sub1.tip1': 'Vacuum and sanitize your mattress thoroughly before storage.',
     'recommendations.sub1.tip2': 'Use a high-quality mattress storage bag for protection.',
     'recommendations.sub1.tip3': 'Store mattresses flat to maintain their shape and support.',

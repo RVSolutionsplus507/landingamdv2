@@ -1,6 +1,7 @@
 ---
 // Sección de Tamaños de Mini Depósitos
 import StorageCarousel from './StorageCarousel.astro';
+import TamanosPricingCards from './TamanosPricingCards.astro';
 import AnimatedCTAButton from './AnimatedCTAButton.astro';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
@@ -8,7 +9,7 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<section id="tamanos" class="py-16 lg:py-16 bg-white">
+<section id="tamanos" class="py-16 lg:py-12 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Título y descripción -->
     <div class="text-center mb-16">
@@ -28,17 +29,23 @@ const t = useTranslations(lang);
     </div>
     
     <!-- Metraje con flip animation -->
-    <div class="text-center mb-8">
+    <!-- <div class="text-center mb-8">
       <div class="inline-block perspective-1000">
         <div id="size-display-main" class="text-4xl lg:text-5xl font-black text-[var(--color-primary)] flip-container">
           24m²
         </div>
       </div>
-    </div>
+    </div> -->
     
     <!-- Carousel de tamaños -->
-    <div class="mb-12">
+    <!-- <div class="mb-12">
       <StorageCarousel />
+    </div> -->
+    
+    <!-- Nuevo componente de pricing cards para testing -->
+    <div class="mb-12">
+      <h3 class="text-xl font-bold text-center mb-6 text-[var(--color-dark)]">Nuevo diseño - Pricing Cards (Prueba)</h3>
+      <TamanosPricingCards />
     </div>
     
     

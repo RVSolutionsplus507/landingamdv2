@@ -1,0 +1,23 @@
+<svg width="84" height="85" viewBox="0 0 84 85" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect y="0.5" width="84" height="84" rx="8" fill="#EF7B34"/>
+<!-- Garage structure simplified from uploaded design -->
+<path d="M12 25.5H72V65.5H12V25.5Z" fill="white"/>
+<!-- Garage roof/door -->
+<path d="M12 25.5H72V28.5H12V25.5Z" fill="white"/>
+<path d="M12 30.5H72V32.5H12V30.5Z" fill="white"/>
+<path d="M12 34.5H72V36.5H12V34.5Z" fill="white"/>
+<path d="M12 38.5H72V40.5H12V38.5Z" fill="white"/>
+<!-- Car silhouette inside garage -->
+<path d="M20 48.5H64C65.1046 48.5 66 49.3954 66 50.5V60.5H18V50.5C18 49.3954 18.8954 48.5 20 48.5Z" fill="white"/>
+<!-- Car windshield -->
+<path d="M24 48.5H60L58 43.5H26L24 48.5Z" fill="white"/>
+<!-- Car wheels -->
+<circle cx="26" cy="60.5" r="3" fill="white"/>
+<circle cx="58" cy="60.5" r="3" fill="white"/>
+<!-- Car details -->
+<rect x="22" y="53.5" width="4" height="3" rx="1" fill="#EF7B34"/>
+<rect x="58" y="53.5" width="4" height="3" rx="1" fill="#EF7B34"/>
+<!-- Garage pillars -->
+<rect x="10" y="25.5" width="2" height="40" fill="white"/>
+<rect x="72" y="25.5" width="2" height="40" fill="white"/>
+</svg>

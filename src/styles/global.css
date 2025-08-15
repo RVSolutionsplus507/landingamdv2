@@ -8,4 +8,9 @@
   /* Definir los pesos de fuente disponibles */
   --font-weight-light: 300;
   --font-weight-extrabold: 800;
+  
+  /* Colores del tema */
+  --color-primary: #EF7B34;
+  --color-dark: #222222;
+  --color-white: #FFFFFF;
 }

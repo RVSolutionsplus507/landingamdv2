@@ -31,22 +31,13 @@ const t = useTranslations(lang);
             </span>
           </h1>
           
-          <p class="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-600 max-w-2xl text-center lg:text-left leading-tight">
-            <span class="block">
-              {t('hero.subtitle.line1')}
-            </span>
-            <span class="block">
-              {t('hero.subtitle.line2')}
-            </span>
-          </p>
-        </div>
-        
-        <!-- CTA Button Animado -->
-        <div class="pt-4 flex justify-center lg:justify-start">
-          <AnimatedCTAButton 
-            href="#cotizacion" 
-            text={t('hero.cta')}
-          />
+          <!-- CTA Button Animado - Movido donde estaba la descripción -->
+          <div class="flex justify-center lg:justify-start">
+            <AnimatedCTAButton 
+              href="#cotizacion" 
+              text={t('hero.cta')}
+            />
+          </div>
         </div>
       </div>
       
