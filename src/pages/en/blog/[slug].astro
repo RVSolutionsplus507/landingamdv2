@@ -3,6 +3,17 @@ import Layout from '../../../layouts/Layout.astro';
 import BlogBreadcrumbs from '../../../components/BlogBreadcrumbs.astro';
 import { getLangFromUrl, useTranslations } from '../../../i18n/utils';
 
+// Generate static paths for all English blog articles
+export async function getStaticPaths() {
+  return [
+    { params: { slug: 'advantages-of-renting-mini-storage-unit' } },
+    { params: { slug: 'choose-ideal-size-for-your-mini-storage-unit' } },
+    { params: { slug: 'store-clothes-and-shoes-without-damage' } },
+    { params: { slug: 'do-you-know-what-to-store-in-mini-storage-unit' } },
+    { params: { slug: 'security-measures-before-storing' } }
+  ];
+}
+
 const { slug } = Astro.params;
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
