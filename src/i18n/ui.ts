@@ -26,12 +26,12 @@ export const ui = {
     'hero.cta': 'Obtén tu cotización',
     
     // Quote Section
-    'quote.title': '¿Buscas alquiler de bodegas o mini depósitos en Panamá?',
+    'quote.title': '¿Buscas alquiler de mini depósitos en Panamá?',
     
     // Services
     'services.storage.title': 'Soluciones de almacenajes',
     'services.storage.highlight': 'rápido y confiable',
-    'services.storage.description': 'Almacenajes Minidepósitos: 40 años de experiencia en Panamá. Acceso directo a bodegas, seguridad 24/7 y flexibilidad a precios amigables.',
+    'services.storage.description': 'Almacenajes Minidepósitos: 40 años de experiencia en Panamá. Acceso directo a bodegas desde tu auto, seguridad 24/7 y flexibilidad a precios amigables.',
     'services.storage.tagline': 'Tu tranquilidad es nuestra prioridad.',
     'services.benefits.title': 'Beneficios exclusivos',
     'services.benefits.subtitle': 'para tu comodidad',
@@ -212,12 +212,12 @@ export const ui = {
     'hero.cta': 'Get Your Quote',
     
     // Quote Section - Professional US tone
-    'quote.title': 'Need secure storage units or warehouse space in Panama City?',
+    'quote.title': 'Need secure storage units or warehouse space in Panamá?',
     
     // Services - US Professional tone
     'services.storage.title': 'Premium Self Storage',
     'services.storage.highlight': 'secure & convenient',
-    'services.storage.description': 'Almacenajes Self Storage: 40+ years serving Panama. Drive-up access, advanced security systems, and flexible terms at competitive rates.',
+    'services.storage.description': 'Almacenajes Minidepósitos: 40+ years serving Panamá. Drive-through access, advanced security systems, and flexible terms at competitive rates.',
     'services.storage.tagline': 'Your belongings deserve the best protection.',
     'services.benefits.title': 'Why Choose Us',
     'services.benefits.subtitle': 'premium features included',
@@ -254,7 +254,7 @@ export const ui = {
     
     // Locations - Geographic SEO focus
     'locations.title': 'Storage Facility Locations',
-    'locations.description': 'Convenient self storage locations throughout Panama City. Visit our secure facilities to see our storage units firsthand.',
+    'locations.description': 'Convenient self storage locations throughout Panamá City. Visit our secure facilities to see our storage units firsthand.',
     'locations.select': 'Choose location',
     
     // Recommendations - Expert storage authority content

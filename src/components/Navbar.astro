@@ -4,6 +4,10 @@ import LanguageToggle from './LanguageToggle.astro';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+// Detectar si estamos en una página de blog
+const isOnBlogPage = Astro.url.pathname.includes('/blog');
+const homeUrl = lang === 'en' ? '/en/' : '/';
 ---
 
 <nav class="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm" role="navigation" aria-label="Navegación principal">
@@ -12,9 +16,9 @@ const t = useTranslations(lang);
       
       <!-- Logo -->
       <div class="flex-shrink-0">
-        <a href="#hero" class="flex items-center" aria-label="Ir al inicio">
+        <a href={isOnBlogPage ? homeUrl : "#hero"} class="flex items-center" aria-label="Ir al inicio">
           <img 
-            src="/Images/amdlogo.svg" 
+            src="/Images/amdlogo.webp" 
             alt="Almacenajes Mini Depósitos - Logo" 
             class="h-8 w-auto"
             width="120"
@@ -29,37 +33,37 @@ const t = useTranslations(lang);
       <div class="hidden lg:flex" role="menubar">
         <div class="flex items-center space-x-8">
           <a 
-            href="#hero" 
+            href={isOnBlogPage ? homeUrl + "#hero" : "#hero"}
             class="text-gray-700 hover:text-[var(--color-primary)] text-sm font-bold transition-colors duration-200"
           >
             {t('nav.home')}
           </a>
           <a 
-            href="#cotizacion" 
+            href={isOnBlogPage ? homeUrl + "#cotizacion" : "#cotizacion"}
             class="text-gray-700 hover:text-[var(--color-primary)] text-sm font-bold transition-colors duration-200"
           >
             {t('nav.quote')}
           </a>
           <a 
-            href="#sucursales" 
+            href={isOnBlogPage ? homeUrl + "#sucursales" : "#sucursales"}
             class="text-gray-700 hover:text-[var(--color-primary)] text-sm font-bold transition-colors duration-200"
           >
             {t('nav.locations')}
           </a>
           <a 
-            href="#servicios" 
+            href={isOnBlogPage ? homeUrl + "#servicios" : "#servicios"}
             class="text-gray-700 hover:text-[var(--color-primary)] text-sm font-bold transition-colors duration-200"
           >
             {t('nav.services')}
           </a>
           <a 
-            href="#tamanos" 
+            href={isOnBlogPage ? homeUrl + "#tamanos" : "#tamanos"}
             class="text-gray-700 hover:text-[var(--color-primary)] text-sm font-bold transition-colors duration-200"
           >
             {t('nav.sizes')}
           </a>
           <a 
-            href="#recomendaciones" 
+            href={isOnBlogPage ? homeUrl + "#recomendaciones" : "#recomendaciones"}
             class="text-gray-700 hover:text-[var(--color-primary)] text-sm font-bold transition-colors duration-200"
           >
             {t('nav.recommendations')}
@@ -80,7 +84,7 @@ const t = useTranslations(lang);
         
         <!-- CTA Button -->
         <a 
-          href="#cotizacion" 
+          href={isOnBlogPage ? homeUrl + "#cotizacion" : "#cotizacion"}
           class="bg-[var(--color-primary)] text-white px-6 py-2 rounded-full text-sm font-medium border-2 border-[var(--color-primary)] hover:bg-[var(--color-white)] hover:text-[var(--color-primary)] transition-colors duration-200"
         >
           {t('common.contact')}
@@ -108,37 +112,37 @@ const t = useTranslations(lang);
   <div class="mobile-menu hidden lg:hidden" id="mobile-menu" role="menu" aria-labelledby="mobile-menu-button">
     <div class="px-4 pt-2 pb-4 space-y-2 bg-white border-t border-gray-100 shadow-lg">
       <a 
-        href="#hero" 
+        href={isOnBlogPage ? homeUrl + "#hero" : "#hero"}
         class="block px-4 py-3 text-base font-bold text-gray-700 hover:text-[var(--color-primary)] hover:bg-gray-50 rounded-lg transition-colors duration-200"
       >
         {t('nav.home')}
       </a>
       <a 
-        href="#cotizacion" 
+        href={isOnBlogPage ? homeUrl + "#cotizacion" : "#cotizacion"}
         class="block px-4 py-3 text-base font-bold text-gray-700 hover:text-[var(--color-primary)] hover:bg-gray-50 rounded-lg transition-colors duration-200"
       >
         {t('nav.quote')}
       </a>
       <a 
-        href="#sucursales" 
+        href={isOnBlogPage ? homeUrl + "#sucursales" : "#sucursales"}
         class="block px-4 py-3 text-base font-bold text-gray-700 hover:text-[var(--color-primary)] hover:bg-gray-50 rounded-lg transition-colors duration-200"
       >
         {t('nav.locations')}
       </a>
       <a 
-        href="#servicios" 
+        href={isOnBlogPage ? homeUrl + "#servicios" : "#servicios"}
         class="block px-4 py-3 text-base font-bold text-gray-700 hover:text-[var(--color-primary)] hover:bg-gray-50 rounded-lg transition-colors duration-200"
       >
         {t('nav.services')}
       </a>
       <a 
-        href="#tamanos" 
+        href={isOnBlogPage ? homeUrl + "#tamanos" : "#tamanos"}
         class="block px-4 py-3 text-base font-bold text-gray-700 hover:text-[var(--color-primary)] hover:bg-gray-50 rounded-lg transition-colors duration-200"
       >
         {t('nav.sizes')}
       </a>
       <a 
-        href="#recomendaciones" 
+        href={isOnBlogPage ? homeUrl + "#recomendaciones" : "#recomendaciones"}
         class="block px-4 py-3 text-base font-bold text-gray-700 hover:text-[var(--color-primary)] hover:bg-gray-50 rounded-lg transition-colors duration-200"
       >
         {t('nav.recommendations')}
@@ -153,7 +157,7 @@ const t = useTranslations(lang);
       <!-- Mobile CTA -->
       <div class="pt-4">
         <a 
-          href="#cotizacion" 
+          href={isOnBlogPage ? homeUrl + "#cotizacion" : "#cotizacion"}
           class="block w-full bg-[var(--color-primary)] text-white text-center px-6 py-3 rounded-full font-medium border-2 border-[var(--color-primary)] hover:bg-[var(--color-white)] hover:text-[var(--color-primary)] transition-colors duration-200"
         >
           {t('common.contact')}

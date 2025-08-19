@@ -4,8 +4,7 @@ const CACHE_NAME = 'almacenajes-v1';
 const STATIC_ASSETS = [
   '/',
   '/en/',
-  '/Images/amdlogo.svg',
-  '/Images/amdlogo2.svg',
+  '/Images/amdlogo.webp',
   '/Images/heroimage.svg'
 ];
 

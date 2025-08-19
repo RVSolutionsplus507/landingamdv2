@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./public/Images/amdlogo2.svg" alt="Almacenajes Mini Depósitos" width="200" height="80" />
+  <img src="./public/Images/amdlogo.webp" alt="Almacenajes Mini Depósitos" width="200" height="80" />
   
   # 🏢 Almacenajes Mini Depósitos - Landing Page
   

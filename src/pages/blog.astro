@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
 import BlogBreadcrumbs from '../components/BlogBreadcrumbs.astro';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
@@ -21,63 +23,63 @@ const blogArticles: Array<{
 }> = [
   {
     id: 1,
-    slug: 'como-elegir-tamano-perfecto-minideposito',
-    title: 'Cómo elegir el tamaño perfecto para tu mini depósito',
-    excerpt: 'Guía completa para determinar qué tamaño de mini depósito necesitas según tus pertenencias y presupuesto.',
-    image: '/Images/carousel1.webp',
-    date: '2024-03-15',
+    slug: 'ventajas-de-alquilar-un-mini-deposito',
+    title: 'Ventajas de alquilar un mini depósito',
+    excerpt: 'El problema del espacio se ha convertido en un reto común donde los hogares y oficinas son cada vez más pequeños. Acumular pertenencias no solo genera desorden, también invade nuestra comodidad y productividad.',
+    image: '/Images/blog/Deposito.webp',
+    date: '2023-08-19',
     author: 'Almacenajes Mini Depósitos',
-    readTime: '5 min',
-    category: 'Guías',
-    tags: ['tamaños', 'consejos', 'almacenamiento']
+    readTime: '8 min',
+    category: 'Consejos',
+    tags: ['consejos', 'almacenamiento', 'ventajas']
   },
   {
     id: 2,
-    slug: 'consejos-seguridad-almacenar-documentos-importantes',
-    title: 'Consejos de seguridad para almacenar documentos importantes',
-    excerpt: 'Aprende las mejores prácticas para proteger tus documentos más valiosos en un mini depósito.',
-    image: '/Images/carousel2.webp',
-    date: '2024-03-10',
+    slug: 'elige-el-tamano-ideal-para-tu-mini-deposito',
+    title: 'Elige el tamaño ideal para tu mini depósito',
+    excerpt: 'Encuentra el tamaño perfecto para mini depósitos que necesitas según lo que guardas y lo que puedes gastar.',
+    image: '/Images/blog/Deposito2.webp',
+    date: '2025-08-15',
     author: 'Almacenajes Mini Depósitos',
-    readTime: '4 min',
-    category: 'Seguridad',
-    tags: ['documentos', 'seguridad', 'protección']
+    readTime: '5 min',
+    category: 'Guías',
+    tags: ['tamaños', 'consejos', 'asesoramiento']
   },
   {
     id: 3,
-    slug: 'organizar-mudanza-mini-deposito-temporal',
-    title: 'Cómo organizar tu mudanza usando un mini depósito temporal',
-    excerpt: 'Estrategias efectivas para hacer tu mudanza más fácil utilizando almacenamiento temporal.',
-    image: '/Images/carousel3.webp',
-    date: '2024-03-05',
+    slug: 'guarda-tu-ropa-y-zapatos-sin-que-se-danen',
+    title: 'Guarda tu ropa y zapatos sin que se dañen',
+    excerpt: 'Sigue estos valiosos consejos para mantener tu ropa y zapatos en perfecto estado mientras están en nuestros depósitos.',
+    image: '/Images/blog/ropamujer.webp',
+    date: '2025-08-16',
     author: 'Almacenajes Mini Depósitos',
-    readTime: '6 min',
-    category: 'Mudanzas',
-    tags: ['mudanza', 'organización', 'temporal']
+    readTime: '5 min',
+    category: 'Mudanza',
+    tags: ['almacenamiento', 'organización']
   },
   {
     id: 4,
-    slug: 'ventajas-minidepositos-vs-bodega-tradicional',
-    title: 'Ventajas de los mini depósitos vs. bodega tradicional',
-    excerpt: 'Comparación detallada entre mini depósitos modernos y bodegas tradicionales de alquiler.',
-    image: '/Images/carousel4.webp',
-    date: '2024-02-28',
+    slug: 'sabes-que-guardar-en-un-mini-deposito',
+    title: '¿Sabes qué guardar en un mini depósito?',
+    excerpt: 'Si aún no tienes claro qué cosas puedes guardar, aquí te compartimos ideas de objetos de forma inteligente: ahorra espacio, optimiza el orden y protege lo esencial sin vueltas.',
+    image: '/Images/blog/embalaje.webp',
+    date: '2025-08-16',
     author: 'Almacenajes Mini Depósitos',
-    readTime: '7 min',
-    category: 'Comparaciones',
-    tags: ['ventajas', 'comparación', 'bodega']
+    readTime: '2 min',
+    category: 'Guías',
+    tags: ['consejos', 'almacenamiento']
   },
   {
     id: 5,
-    slug: 'preparar-objetos-almacenamiento-largo-plazo',
-    title: 'Cómo preparar tus objetos para almacenamiento a largo plazo',
-    excerpt: 'Técnicas y materiales necesarios para proteger tus pertenencias durante almacenamiento prolongado.',
-    image: '/Images/carousel5.webp',
-    date: '2024-02-20',
+    slug: 'medidas-de-seguridad-antes-de-almacenar',
+    title: 'Medidas de seguridad antes de almacenar',
+    excerpt: 'Aplica estas recomendaciones antes de guardar tus cosas en los depósitos para prevenir cualquier eventualidad inesperada.',
+    image: '/Images/blog/portapapeles.webp',
+    date: '2025-08-18',
     author: 'Almacenajes Mini Depósitos',
-    readTime: '8 min',
-    category: 'Conservación',
-    tags: ['preparación', 'largo plazo', 'conservación']
+    readTime: '3 min',
+    category: 'Seguridad',
+    tags: ['recomendaciones', 'protección', 'almacenaje']
   }
 ];
 
@@ -118,6 +120,9 @@ const pageDescription = lang === 'es'
       "keywords": article.tags.join(', ')
     }))
   })} />
+
+  <!-- Navbar -->
+  <Navbar />
 
   <main class="pt-16">
     <!-- Breadcrumbs -->
@@ -205,36 +210,10 @@ const pageDescription = lang === 'es'
       </div>
     </section>
 
-    <!-- Newsletter Subscription -->
-    <section class="bg-[var(--color-dark)] py-16">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-3xl font-bold text-white mb-4">
-          {lang === 'es' ? 'Mantente informado' : 'Stay informed'}
-        </h2>
-        <p class="text-gray-300 mb-8 text-lg">
-          {lang === 'es' 
-            ? 'Recibe consejos de almacenamiento y ofertas especiales directamente en tu correo.'
-            : 'Get storage tips and special offers delivered straight to your inbox.'
-          }
-        </p>
-        
-        <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-          <input 
-            type="email" 
-            placeholder={lang === 'es' ? 'Tu correo electrónico' : 'Your email address'}
-            class="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
-            required
-          >
-          <button 
-            type="submit"
-            class="bg-[var(--color-primary)] text-white px-6 py-3 rounded-lg font-medium hover:bg-[var(--color-primary)]/90 transition-colors duration-200"
-          >
-            {lang === 'es' ? 'Suscribirse' : 'Subscribe'}
-          </button>
-        </form>
-      </div>
-    </section>
   </main>
+
+  <!-- Footer -->
+  <Footer />
 </Layout>
 
 <style>

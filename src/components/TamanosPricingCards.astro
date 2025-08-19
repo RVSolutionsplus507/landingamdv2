@@ -13,20 +13,9 @@ import storageSizes from '../data/storageSizes.json';
         <p class="text-lg text-gray-600">(1-6m²)</p>
       </div>
       
-      <div class="drag-container p-4" data-category="small">
-        <div class="drag-content">
-          <div class="drag-item" data-size="3m²">
-            <img src="/Images/carousel/3metros.webp" alt="3m²" width="200" height="128" loading="lazy">
-            <h4 class="text-3xl font-bold text-[var(--color-primary)]">3m²</h4>
-          </div>
-          <div class="drag-item" data-size="4m²">
-            <img src="/Images/carousel/4metros.webp" alt="4m²" width="200" height="128" loading="lazy">
-            <h4 class="text-3xl font-bold text-[var(--color-primary)]">4m²</h4>
-          </div>
-          <div class="drag-item" data-size="6m²">
-            <img src="/Images/carousel/6metros.webp" alt="6m²" width="200" height="128" loading="lazy">
-            <h4 class="text-3xl font-bold text-[var(--color-primary)]">6m²</h4>
-          </div>
+      <div class="static-container p-4">
+        <div class="static-content">
+          <img src="/Images/carousel/4metros.webp" alt="Tamaño Chico" width="280" height="180" loading="lazy">
         </div>
       </div>
     </div>
@@ -39,20 +28,9 @@ import storageSizes from '../data/storageSizes.json';
         <p class="text-lg text-gray-600">(7-17m²)</p>
       </div>
       
-      <div class="drag-container p-4" data-category="medium">
-        <div class="drag-content">
-          <div class="drag-item" data-size="9m²">
-            <img src="/Images/carousel/9metros.webp" alt="9m²" width="200" height="128" loading="lazy">
-            <h4 class="text-3xl font-bold text-[var(--color-primary)]">9m²</h4>
-          </div>
-          <div class="drag-item" data-size="12m²">
-            <img src="/Images/carousel/12metros.webp" alt="12m²" width="200" height="128" loading="lazy">
-            <h4 class="text-3xl font-bold text-[var(--color-primary)]">12m²</h4>
-          </div>
-          <div class="drag-item" data-size="15m²">
-            <img src="/Images/carousel/15metros.webp" alt="15m²" width="200" height="128" loading="lazy">
-            <h4 class="text-3xl font-bold text-[var(--color-primary)]">15m²</h4>
-          </div>
+      <div class="static-container p-4">
+        <div class="static-content">
+          <img src="/Images/carousel/15metros.webp" alt="Tamaño Mediano" width="280" height="180" loading="lazy">
         </div>
       </div>
     </div>
@@ -64,20 +42,9 @@ import storageSizes from '../data/storageSizes.json';
         <p class="text-lg text-gray-600">(18-60m²)</p>
       </div>
       
-      <div class="drag-container p-4" data-category="large">
-        <div class="drag-content">
-          <div class="drag-item" data-size="18m²">
-            <img src="/Images/carousel/18metros.webp" alt="18m²" width="200" height="128" loading="lazy">
-            <h4 class="text-3xl font-bold text-[var(--color-primary)]">18m²</h4>
-          </div>
-          <div class="drag-item" data-size="20m²">
-            <img src="/Images/carousel/20metros.webp" alt="20m²" width="200" height="128" loading="lazy">
-            <h4 class="text-3xl font-bold text-[var(--color-primary)]">20m²</h4>
-          </div>
-          <div class="drag-item" data-size="24m²">
-            <img src="/Images/carousel/24metros.webp" alt="24m²" width="200" height="128" loading="lazy">
-            <h4 class="text-3xl font-bold text-[var(--color-primary)]">24m²</h4>
-          </div>
+      <div class="static-container p-4">
+        <div class="static-content">
+          <img src="/Images/carousel/20metros.webp" alt="Tamaño Grande" width="280" height="180" loading="lazy">
         </div>
       </div>
     </div>
@@ -104,48 +71,30 @@ import storageSizes from '../data/storageSizes.json';
     z-index: 10;
   }
 
-  .drag-container {
+  .static-container {
     width: 100%;
-    overflow: hidden;
-    cursor: grab;
-    position: relative;
-    height: 350px;
-  }
-  
-  .drag-container.active {
-    cursor: grabbing;
-  }
-  
-  .drag-content {
+    height: 280px;
     display: flex;
-    width: 300%;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  
-  .drag-item {
-    flex-shrink: 0;
-    background-color: #f9fafb;
-    border-radius: 0.5rem;
-    padding: 1rem;
-    transition: all 0.2s;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 33.333%;
-    height: 350px;
   }
   
-  .drag-item img {
-    width: 95%;
-    height: 240px;
+  .static-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .static-content img {
+    width: 100%;
+    height: 100%;
     object-fit: contain;
-    margin-bottom: 1.5rem;
     transition: transform 0.3s ease;
   }
   
-  .drag-item:hover img {
+  .static-content img:hover {
     transform: scale(1.05);
   }
 
@@ -154,116 +103,10 @@ import storageSizes from '../data/storageSizes.json';
     .pricing-card:nth-child(2) {
       transform: none;
     }
+    
+    .static-container {
+      height: 240px;
+    }
   }
 </style>
 
-<script>
-  // Auto-slideshow con navegación simple para cada card
-  document.addEventListener('DOMContentLoaded', function() {
-    const dragContainers = document.querySelectorAll('.drag-container') as NodeListOf<HTMLElement>;
-    
-    dragContainers.forEach(container => {
-      const content = container.querySelector('.drag-content') as HTMLElement;
-      const items = container.querySelectorAll('.drag-item') as NodeListOf<HTMLElement>;
-      let currentIndex = 0;
-      let autoSlideInterval: ReturnType<typeof setInterval>;
-      
-      // Función para actualizar la posición
-      function updatePosition(index: number) {
-        const translateX = -index * 33.333;
-        content.style.transform = `translateX(${translateX}%)`;
-        
-        // Actualizar clases activas
-        items.forEach((item, i) => {
-          item.classList.toggle('active', i === index);
-        });
-      }
-      
-      // Función para ir al siguiente slide
-      function nextSlide() {
-        currentIndex = (currentIndex + 1) % items.length;
-        updatePosition(currentIndex);
-      }
-      
-      // Función para iniciar auto-slide
-      function startAutoSlide() {
-        autoSlideInterval = setInterval(nextSlide, 10000); // 10 segundos
-      }
-      
-      // Función para detener auto-slide
-      function stopAutoSlide() {
-        if (autoSlideInterval) {
-          clearInterval(autoSlideInterval);
-        }
-      }
-      
-      // Inicializar posición y auto-slide
-      updatePosition(0);
-      startAutoSlide();
-      
-      // Click en container para cambiar slide manualmente
-      container.addEventListener('click', (e: Event) => {
-        stopAutoSlide();
-        nextSlide();
-        setTimeout(startAutoSlide, 2000); // Reinicia auto-slide después de 2 segundos
-      });
-      
-      // Touch swipe simple para móviles
-      let touchStartX = 0;
-      let touchEndX = 0;
-      
-      container.addEventListener('touchstart', (e: Event) => {
-        const touchEvent = e as TouchEvent;
-        touchStartX = touchEvent.touches[0].clientX;
-        stopAutoSlide();
-      }, { passive: true });
-      
-      container.addEventListener('touchend', (e: Event) => {
-        const touchEvent = e as TouchEvent;
-        touchEndX = touchEvent.changedTouches[0].clientX;
-        
-        const diff = touchStartX - touchEndX;
-        const threshold = 30;
-        
-        if (Math.abs(diff) > threshold) {
-          nextSlide();
-        }
-        
-        setTimeout(startAutoSlide, 2000); // Reinicia auto-slide después de 2 segundos
-      }, { passive: true });
-      
-      // Pausar auto-slide al hacer hover
-      container.addEventListener('mouseenter', stopAutoSlide);
-      container.addEventListener('mouseleave', startAutoSlide);
-      
-      // Click handler para items individuales
-      items.forEach((item, index) => {
-        item.addEventListener('click', (e: Event) => {
-          e.stopPropagation();
-          stopAutoSlide();
-          
-          if (index !== currentIndex) {
-            currentIndex = index;
-            updatePosition(currentIndex);
-          }
-          
-          const size = item.getAttribute('data-size');
-          
-          // Update main size display if it exists
-          const sizeDisplay = document.getElementById('size-display-main') as HTMLElement;
-          if (sizeDisplay && size) {
-            sizeDisplay.classList.add('flip-up');
-            setTimeout(() => {
-              if (sizeDisplay) {
-                sizeDisplay.textContent = size;
-                sizeDisplay.classList.remove('flip-up');
-              }
-            }, 300);
-          }
-          
-          setTimeout(startAutoSlide, 2000);
-        });
-      });
-    });
-  });
-</script>
