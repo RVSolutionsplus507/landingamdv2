@@ -68,22 +68,22 @@ const t = useTranslations(lang);
       <div class="grid lg:grid-cols-2 gap-4 lg:gap-52">
         <!-- Contenido izquierdo - Grid de beneficios con íconos (3 columnas en desktop) -->
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-2">
-          <!-- Beneficio 1 -->
+          <!-- Beneficio 1 - Garage (ahora primero) -->
           <div class="text-center mb-2">
             <div class="flex items-center justify-center mx-auto mb-1">
-              <img src="/icons/amarres.svg" alt="Sin amarres" class="w-16 h-16" / width="64" height="64" loading="lazy">
-            </div>
-            <h3 class="font-bold text-[var(--color-dark)] text-sm mb-1">{t('services.benefit1.line1')}</h3>
-            <h3 class="font-bold text-[var(--color-dark)] text-sm">{t('services.benefit1.line2')}</h3>
-          </div>
-          
-          <!-- Beneficio 2 -->
-          <div class="text-center mb-2">
-            <div class="flex items-center justify-center mx-auto mb-1">
-              <img src="/icons/carro-garage.svg" alt="Acceso con tu auto" class="w-16 h-16" / width="64" height="64" loading="lazy">
+              <img src="/icons/garage.svg" alt="Acceso con tu auto" class="w-16 h-16" width="64" height="64" loading="lazy">
             </div>
             <h3 class="font-bold text-[var(--color-dark)] text-sm mb-1">{t('services.benefit2.line1')}</h3>
             <h3 class="font-bold text-[var(--color-dark)] text-sm">{t('services.benefit2.line2')}</h3>
+          </div>
+          
+          <!-- Beneficio 2 - Sin amarres (ahora segundo) -->
+          <div class="text-center mb-2">
+            <div class="flex items-center justify-center mx-auto mb-1">
+              <img src="/icons/amarres.svg" alt="Sin amarres" class="w-16 h-16" width="64" height="64" loading="lazy">
+            </div>
+            <h3 class="font-bold text-[var(--color-dark)] text-sm mb-1">{t('services.benefit1.line1')}</h3>
+            <h3 class="font-bold text-[var(--color-dark)] text-sm">{t('services.benefit1.line2')}</h3>
           </div>
           
           <!-- Beneficio 3 -->
